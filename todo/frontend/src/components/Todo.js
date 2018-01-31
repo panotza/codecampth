@@ -152,9 +152,10 @@ export default class Todo extends Component {
       }
     }
   }
+
   render() {
     return (
-        <div>
+      <div>
           <Card style={{ width: 500 , backgroundColor : this.props.myColor }}>
             <h1>To-do-list</h1>
 
@@ -207,10 +208,10 @@ export default class Todo extends Component {
                   {todo.title}
                   </h4>
                 </List.Item>
-            )}
+              )}
             />
           </Card>
-        </div>
-      );
+      </div>
+    );
   }
 }
