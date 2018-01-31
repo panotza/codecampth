@@ -1,0 +1,36 @@
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import { Layout, Menu, Breadcrumb,Button } from 'antd';
+import './App.css';
+
+const { Header, Content, Footer } = Layout;
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+
+        <h1>Welcome to my application</h1>
+
+        {/* การใส่ Css แบบ Inline Style */}
+        <Card title="SignIn"
+          style={{ width: 300 , marginLeft : 'auto' , marginRight : 'auto'}}
+          hoverable={true}
+        >
+
+        {/* การใส่ CSS แบบ className
+        <Card className="signUpBox" title="Card title"
+        extra={<a href="#">More</a>}>
+        */}
+
+          <p>Username</p>
+          <p>Password</p>
+          <p><Button type="primary">Primary</Button></p>
+        </Card>
+
+      </div>
+    );
+  }
+}
+
+export default App;

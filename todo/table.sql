@@ -1,0 +1,10 @@
+CREATE TABLE `todos` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8_unicode_ci',
+	`completed` TINYINT(4) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
