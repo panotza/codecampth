@@ -156,61 +156,61 @@ export default class Todo extends Component {
   render() {
     return (
       <div>
-          <Card style={{ width: 500 , backgroundColor : this.props.myColor }}>
-            <h1>To-do-list</h1>
+        <Card style={{ width: 500 , backgroundColor : this.props.myColor }}>
+          <h1>To-do-list</h1>
 
-            <div style={{ marginBottom:'10px'}}>
-              <Input
-                addonAfter={<Button type="primary" onClick={this.submitList}>Add</Button>}
-                onChange={this.handleChangeText}
-                value={this.state.inputText}
-                onKeyPress={this.handleKeyPress}/>
-            </div>
+          <div style={{ marginBottom:'10px'}}>
+            <Input
+              addonAfter={<Button type="primary" onClick={this.submitList}>Add</Button>}
+              onChange={this.handleChangeText}
+              value={this.state.inputText}
+              onKeyPress={this.handleKeyPress}/>
+          </div>
 
-            <List
-              bordered
-              dataSource={this.state.todos}
-              style={{ height: 300, overflow: 'auto' }}
-              loading={this.state.isLoading}
-              header={
-                <div style={{ position: 'relative', height: 20 }}>
-                  <Checkbox
-                    checked={this.state.isSelectAll}
-                    onChange={() => this.handleCheckAll(this.state.isSelectAll)}
-                    style={{ marginRight: 10, position: 'absolute', left: 0 }}
-                  >
-                  Select All
-                  </Checkbox>
-                  <Button 
-                    type="danger"
-                    size="small"
-                    style={{ position: 'absolute' , right: 0}}
-                    onClick={this.handleDeleteSelected}
-                  >
-                    Delete
-                  </Button>
-                </div>
-              }
-              renderItem={todo => (
-                <List.Item
-                  actions={[<a onClick={() => this.deleteTodo(todo.id)}><Icon type="close-circle" style={{ fontSize: 16, color: 'rgb(255, 145, 0)' }} /></a>]}
-                  style={{ textDecorationLine: todo.completed ? 'line-through' : 'none' }}
+          <List
+            bordered
+            dataSource={this.state.todos}
+            style={{ height: 300, overflow: 'auto' }}
+            loading={this.state.isLoading}
+            header={
+              <div style={{ position: 'relative', height: 20 }}>
+                <Checkbox
+                  checked={this.state.isSelectAll}
+                  onChange={() => this.handleCheckAll(this.state.isSelectAll)}
+                  style={{ marginRight: 10, position: 'absolute', left: 0 }}
                 >
-                  <Checkbox
-                    checked={todo.selected}
-                    onChange={() => this.handleCheck(todo.id, todo.selected)}
-                    style={{ marginRight: 10 }}
-                  >
-                  </Checkbox>
-                  <h4 
-                    onClick={() => { this.handleToggleComplete(todo.id, todo.completed) }}
-                  >
-                  {todo.title}
-                  </h4>
-                </List.Item>
-              )}
-            />
-          </Card>
+                Select All
+                </Checkbox>
+                <Button 
+                  type="danger"
+                  size="small"
+                  style={{ position: 'absolute' , right: 0}}
+                  onClick={this.handleDeleteSelected}
+                >
+                  Delete
+                </Button>
+              </div>
+            }
+            renderItem={todo => (
+              <List.Item
+                actions={[<a onClick={() => this.deleteTodo(todo.id)}><Icon type="close-circle" style={{ fontSize: 16, color: 'rgb(255, 145, 0)' }} /></a>]}
+                style={{ textDecorationLine: todo.completed ? 'line-through' : 'none' }}
+              >
+                <Checkbox
+                  checked={todo.selected}
+                  onChange={() => this.handleCheck(todo.id, todo.selected)}
+                  style={{ marginRight: 10 }}
+                >
+                </Checkbox>
+                <h4 
+                  onClick={() => { this.handleToggleComplete(todo.id, todo.completed) }}
+                >
+                {todo.title}
+                </h4>
+              </List.Item>
+            )}
+          />
+        </Card>
       </div>
     );
   }
