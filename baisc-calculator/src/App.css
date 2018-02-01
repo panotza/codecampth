@@ -1,0 +1,60 @@
+@import '~antd/dist/antd.css';
+
+#root {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.component-button-panel {
+  background-color: #858694;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
+}
+
+.component-button-panel > div {
+  width: 100%;
+  margin-bottom: 1px;
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.component-button {
+  display: inline-flex;
+  flex: 1 0 auto;
+}
+
+.component-button button {
+  border: 0;
+  font-size: 12px;
+  margin: 0 1px 0 0;
+  flex: 1 0 auto;
+  padding: 0;
+}
+
+.component-button.orange button {
+  background-color: #F5923E;
+  color: white;
+}
+
+.display {
+  text-align: right;
+  width: 100%;
+  height: 130px;
+  background: teal;
+  font-size: 100px;
+  padding-right: 50px;
+  color: white;
+}
+
+.input-button {
+  background: #777;
+  height: 50px;
+}
