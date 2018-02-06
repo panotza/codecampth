@@ -1,8 +1,8 @@
 const router = require('koa-router')();
-const ctrl = require("./controllers/todo");
+const ctrl = require('./controllers/todo');
+const c = require('./cache');
 
 router
-    .prefix('/api')
     .get('/todo', ctrl.list)
     .post('/todo', ctrl.create)
     .get('/todo/:id', ctrl.get)
