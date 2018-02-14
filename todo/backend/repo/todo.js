@@ -1,6 +1,5 @@
 module.exports = {
     async list (db) {
-        console.log('list');
         const [row] = await db.query(`
             SELECT id, title, completed
             FROM todos
@@ -14,7 +13,6 @@ module.exports = {
         });
     },
     async find (db, id) {
-        console.log('find: ' + id);
         const [row] = await db.query(`
             SELECT id, title, completed
             FROM todos
