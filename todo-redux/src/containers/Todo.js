@@ -5,29 +5,23 @@ import * as todoAction from '../actions/todo';
 import TodoList from '../components/Todo';
 
 class Todo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSelectAll: false
-    }
-    this.handleAddTodo = this.handleAddTodo.bind(this);
-    this.handleSelectAll = this.handleSelectAll.bind(this);
-    this.handleDeleteAll = this.handleDeleteAll.bind(this);
+  state = {
+    isSelectAll: false
   }
 
-  handleAddTodo (title, isSelectAll) {
+  handleAddTodo = (title, isSelectAll) => {
     if (title.length > 0) {
       this.props.addTodo(title, isSelectAll);
     }
   }
 
-  handleSelectAll (isSelectAll) {
+  handleSelectAll = isSelectAll => {
     this.setState({ isSelectAll }, () => {
       this.props.toggleSelectAll(isSelectAll)
     });
   }
 
-  handleDeleteAll () {
+  handleDeleteAll = () => {
     this.setState({ isSelectAll: false }, () => {
       this.props.deleteAllSelected();
     });
@@ -36,7 +30,7 @@ class Todo extends Component {
   render () {
     return (
       <TodoList
-        { ...this.props } 
+        { ...this.props }
         handleAddTodo={this.handleAddTodo}
         handleSelectAll={this.handleSelectAll}
         handleDeleteAll={this.handleDeleteAll}
@@ -46,14 +40,8 @@ class Todo extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos
-  }
-}
+const mapStateToProps = state => ({
+  todos: state.todos
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(todoAction, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default connect(mapStateToProps, todoAction)(Todo);
